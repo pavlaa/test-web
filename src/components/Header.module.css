@@ -1,0 +1,80 @@
+.header {
+  background-color: var(--mainDark-color);
+  color: var(--white-color);
+  font-weight: 700;
+}
+
+.header__container {
+  max-height: 66px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*---Main---*/
+/*---Logo---*/
+.header__main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 1 490px;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 1 196px;
+  padding: 0 10px;
+}
+
+.logo__text {
+  font-size: 24px;
+  line-height: 28px;
+}
+/*------*/
+
+/*---Nav---*/
+.header__nav{
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 1 244px;
+  color: var(--white-color);
+}
+
+.header__nav p{
+  padding: 0 5px;
+  color: var(--white-color);
+  font-size: 18px;
+  line-height: 21px;
+}
+/*------*/
+/*------*/
+
+/*---Profile and button---*/
+.header__profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.profile__photo {
+  height: 30px;
+  width: 30px;
+  margin-right: 15px;
+}
+
+.profile__name {
+  font-size: 18px;
+  line-height: 21px;
+  margin-right: 40px;
+}
+
+.profile__logout {
+  width: 80px;
+  height: 25px;
+}
+/*------*/

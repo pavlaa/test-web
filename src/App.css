@@ -1,3 +1,7 @@
-.App {
+.wrapper {
+  min-height: 100%;
+}
 
+.body {
+  padding: 20px 10px;
 }
