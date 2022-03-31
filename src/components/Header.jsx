@@ -44,7 +44,9 @@ const Header = () => {
           :
           <div className={style.header__profile}>
             <div className={style.profile__logout}>
-              <CustomButton size="14px" onClick={() => {setIsLogin(true)}}>Login</CustomButton>
+              <Link to="/login">
+                <CustomButton size="14px">Login</CustomButton>
+              </Link>
             </div>
           </div>
         }
