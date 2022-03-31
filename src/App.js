@@ -1,3 +1,4 @@
+import React from "react";
 import './App.css';
 import Header from "./components/Header";
 import {Route, Routes} from "react-router-dom";
@@ -11,9 +12,9 @@ function App() {
       <Header />
       <div className="body _container">
         <Routes>
-          <Route path="/" element={<HomePage />}/>
-          <Route path="/info" element={<InfoPage />}/>
-          <Route path="/login" element={<LoginPage />}/>
+          <Route path="/" element={<HomePage/>}/>
+          <Route path="/info" element={<InfoPage/>}/>
+          <Route path="/login" element={<LoginPage/>}/>
         </Routes>
       </div>
     </div>

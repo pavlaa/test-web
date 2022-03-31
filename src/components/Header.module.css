@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex: 0 1 490px;
+  flex: 0 1 580px;
 }
 
 .header__logo {
@@ -40,7 +40,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex: 0 1 244px;
+  flex: 0 1 334px;
   color: var(--white-color);
 }
 

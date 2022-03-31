@@ -1,12 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 import style from './Header.module.css';
 import icon from '../image/mainicon.svg';
 import user from '../image/usericon.svg';
 import {Link} from "react-router-dom";
 import CustomButton from "./UI/CustomButton";
+import {useDispatch, useSelector} from "react-redux";
+import {GetLogout} from "../store/actions/authAction";
 
 const Header = () => {
-  const [isLogin, setIsLogin] = useState(false)
+  const {isLogin} = useSelector(state => state?.auth);
+  const dispatch = useDispatch();
+
+  const onLogout = () => {
+    dispatch(GetLogout())
+  }
 
   return (
     <header className={style.header}>
@@ -23,6 +30,9 @@ const Header = () => {
             <Link to="/calendar">
               <p>Calendar</p>
             </Link>
+            <Link to="/profile">
+              <p>Profile</p>
+            </Link>
             <Link to="/info">
               <p>Info</p>
             </Link>
@@ -38,7 +48,7 @@ const Header = () => {
               Pavel Coolov
             </div>
             <div className={style.profile__logout}>
-              <CustomButton size="14px" onClick={() => {setIsLogin(false)}}>Logout</CustomButton>
+              <CustomButton size="14px" onClick={onLogout}>Logout</CustomButton>
             </div>
           </div>
           :

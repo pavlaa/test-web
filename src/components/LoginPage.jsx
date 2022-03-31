@@ -2,13 +2,21 @@ import React from 'react';
 import style from './LoginPage.module.css';
 import {useForm} from "react-hook-form";
 import CustomButton from "./UI/CustomButton";
+import {useDispatch, useSelector} from "react-redux";
+import {GetLogin} from "../store/actions/authAction";
+import {Navigate} from "react-router-dom";
 
 
 const LoginPage = () => {
+  const {isLogin} = useSelector(state => state?.auth);
   const {register, handleSubmit, formState: {errors}} = useForm();
+  const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    console.log(data)
+    dispatch(GetLogin(data))
+  }
+  if (isLogin) {
+    return <Navigate to="/profile" replace />
   }
 
   return (
