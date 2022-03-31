@@ -1,0 +1,36 @@
+.info {
+  background-color: var(--white-color);
+  color: var(--mainDark-color);
+  font-weight: 700;
+}
+
+.info__container {
+  font-size: 43px;
+  line-height: 50px;
+}
+
+.info__container h2 {
+  margin-bottom: 20px;
+}
+
+.info__container span {
+  color: var(--mainGreen-color);
+}
+
+.info__text {
+  color: var(--mainDark-color);
+  font-size: 27px;
+  line-height: 32px;
+  margin-bottom: 20px;
+}
+
+.info__text p {
+  margin-bottom: 10px;
+}
+
+.info__contact {
+  color: var(--mainDark-color);
+  margin-bottom: 5px;
+  font-size: 25px;
+  line-height: 29px;
+}
