@@ -1,0 +1,15 @@
+.home {
+  background-color: var(--white-color);
+  color: var(--mainDark-color);
+  font-weight: 700;
+}
+
+.home__container {
+  padding: 0 10px;
+  font-size: 43px;
+  line-height: 50px;
+}
+
+.home__container span {
+  color: var(--mainGreen-color);
+}
