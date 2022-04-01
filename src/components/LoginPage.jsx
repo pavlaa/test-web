@@ -8,7 +8,7 @@ import {Navigate} from "react-router-dom";
 
 
 const LoginPage = () => {
-  const {isLogin} = useSelector(state => state?.auth);
+  const {isLogin, error} = useSelector(state => state?.auth);
   const {register, handleSubmit, formState: {errors}} = useForm();
   const dispatch = useDispatch();
 
@@ -63,6 +63,7 @@ const LoginPage = () => {
             </div>
             }
           </label>
+          <div className={style.login__error}>{error}</div>
           <div className={style.login__btn}>
             <CustomButton size="18px" type="submit">Login</CustomButton>
           </div>
