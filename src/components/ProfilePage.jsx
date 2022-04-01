@@ -22,7 +22,7 @@ const ProfilePage = () => {
       <div className={`${style.profile__container} _container`}>
         <div className={style.profile__info}>
           <div className={style.profile__photo}>
-            us
+
           </div>
           <div className={style.profile__desc}>
             <div className={style.profile__name}>

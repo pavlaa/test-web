@@ -5,7 +5,7 @@ import search from "../../image/searchicon.svg";
 import * as calendar from "./calendarFunctions";
 import classNames from 'classnames';
 import {useDispatch, useSelector} from "react-redux";
-import {AddEvent} from "../../store/actions/profileAction";
+import {AddEvent, UpdateEvent} from "../../store/actions/profileAction";
 import {Navigate} from "react-router-dom";
 
 const Calendar = () => {
@@ -23,7 +23,8 @@ const Calendar = () => {
     date: defaultData.date,
     currentDate: new Date(),
     selectedDate: null,
-    monthData: null
+    monthData: null,
+    searchMonthData: null,
   })
 
   const [text, setText] = useState('')
@@ -75,8 +76,35 @@ const Calendar = () => {
       formattedDate: dateState.selectedDate.toLocaleDateString(),
       text: text
     }
-    debugger
     dispatch(AddEvent(event))
+  }
+
+  const updateEvent = () => {
+    const selectedDate = dateState.selectedDate;
+
+    const newEvents = events.map(event => {
+      if (calendar.areEqual(event.dateForCompare, selectedDate)) {
+        return {...event, text: text}
+      } else {
+        return event
+      }
+    })
+    dispatch(UpdateEvent(newEvents))
+  }
+
+  const searchEvent = () => {
+    if (text === '') {
+      getDateState({...dateState, searchMonthData: null})
+    } else {
+      const foundEvents = [];
+
+      events.map(event => {
+        if (event.text.includes(text)) {
+          return foundEvents.push(event)
+        }
+      })
+      getDateState({...dateState, searchMonthData: foundEvents})
+    }
   }
 
   return (
@@ -88,7 +116,7 @@ const Calendar = () => {
               <CustomButton onClick={createEvent} size="17px">Create</CustomButton>
             </div>
             <div className={style.calendar__update}>
-              <CustomButton size="17px">Update</CustomButton>
+              <CustomButton onClick={updateEvent} size="17px">Update</CustomButton>
             </div>
           </div>
           <div className={style.calendar__search}>
@@ -100,7 +128,7 @@ const Calendar = () => {
               />
             </div>
             <div className={style.calendar__btn}>
-              <CustomButton size="17px">
+              <CustomButton onClick={searchEvent} size="17px">
                 <img src={search} alt="search-icon" />
               </CustomButton>
             </div>
@@ -121,15 +149,37 @@ const Calendar = () => {
           </div>
         </div>
         <div className={style.calendar__table}>
-          <table>
-            <thead className={style.table__header}>
+          {dateState.searchMonthData
+            ?
+            <table>
+              <tbody className={style.table__body}>
+                <tr className={style.body__foundtr}>
+                  {dateState.searchMonthData.map((daySearchWeek, index) =>
+                    <div key={index}
+                         className={classNames(style.body__foundtd, {
+                           [style.today]: calendar.areEqual(daySearchWeek.dateForCompare, dateState.currentDate),
+                           [style.selected]: calendar.areEqual(daySearchWeek.dateForCompare, dateState.selectedDate)
+                         })}
+                         onClick={() => handleDayClick(daySearchWeek.date)}>
+                      <td>{daySearchWeek.dateForCompare.getDate()}</td>
+                      <div className={style.body__event}>
+                        {daySearchWeek.text}
+                      </div>
+                    </div>
+                  )}
+                </tr>
+              </tbody>
+            </table>
+            :
+            <table>
+              <thead className={style.table__header}>
               <tr className={style.header__tr}>
                 {defaultData.weekDaysNames.map(name =>
                   <th key={name}>{name}</th>
                 )}
               </tr>
-            </thead>
-            <tbody className={style.table__body}>
+              </thead>
+              <tbody className={style.table__body}>
               {dateState.monthData?.map((week, index) =>
                 <tr key={index} className={style.body__tr}>
                   {week.map((dayInMonth, index) =>
@@ -154,8 +204,9 @@ const Calendar = () => {
                   )}
                 </tr>
               )}
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          }
         </div>
       </div>
     </div>

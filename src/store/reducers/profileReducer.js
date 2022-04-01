@@ -1,4 +1,5 @@
 export const ADD_EVENT = "ADD_EVENT";
+export const UPDATE_EVENT = "UPDATE_EVENT";
 
 
 const defaultState = {
@@ -15,6 +16,8 @@ export const ProfileReducer = (state = defaultState, action) => {
   switch (action.type) {
     case ADD_EVENT:
       return {...state, events: [...state.events, {...action.payload}]}
+    case UPDATE_EVENT:
+      return {...state, events: action.payload}
     default:
       return state;
   }
