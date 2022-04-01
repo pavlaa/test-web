@@ -6,9 +6,13 @@ import * as calendar from "./calendarFunctions";
 import classNames from 'classnames';
 import {useDispatch, useSelector} from "react-redux";
 import {AddEvent} from "../../store/actions/profileAction";
+import {Navigate} from "react-router-dom";
 
 const Calendar = () => {
-  const {events} = useSelector(state => state?.profile)
+  const {events} = useSelector(state => state?.profile);
+  const {isLogin} = useSelector(state => state?.auth);
+  const dispatch = useDispatch();
+
   const defaultData = {
     date: new Date(),
     monthNames: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"],
@@ -23,8 +27,6 @@ const Calendar = () => {
   })
 
   const [text, setText] = useState('')
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const newMonthDate = calendar.getMonthData(dateState.date.getFullYear(), dateState.date.getMonth());
@@ -48,6 +50,9 @@ const Calendar = () => {
     getDateState({...dateState, monthData: newMonthDateWithEvent})
   }, [dateState.date, events])
 
+  if (!isLogin) {
+    return <Navigate to="/login" replace />
+  }
 
   const prevMonthButton = () => {
     const date = new Date(dateState.date.getFullYear(), dateState.date.getMonth() - 1)
