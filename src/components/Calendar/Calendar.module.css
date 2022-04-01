@@ -1,0 +1,149 @@
+.calendar {
+  font-weight: 700;
+}
+
+.calendar__container{
+
+}
+
+.calendar__header {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.calendar__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 1 226px;
+}
+
+.calendar__create {
+  width: 103px;
+  height: 38px;
+}
+
+.calendar__update {
+  width: 103px;
+  height: 38px;
+}
+
+.calendar__search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 1 484px;
+}
+
+.calendar__input {
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--mainGreen-color);
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 426px;
+  height: 38px;
+}
+
+.calendar__input input{
+  color: var(--mainDark-color);
+  width: 100%;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 20px;
+}
+
+.calendar__btn {
+  width: 38px;
+  height: 38px;
+  font-size: 25px;
+  line-height: 29px;
+}
+
+.calendar__date {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 1 231px;
+}
+.calendar__month, .calendar__year {
+  font-size: 25px;
+  line-height: 29px;
+  color: var(--mainDark-color);
+  font-weight: 700;
+}
+
+.calendar__leftbtn{
+  width: 27px;
+  height: 27px;
+}
+
+.calendar__leftbtn button{
+  line-height: 27px;
+}
+
+.calendar__rightbtn {
+  width: 27px;
+  height: 27px;
+}
+
+.calendar__rightbtn button{
+  line-height: 27px;
+}
+
+.calendar__table {
+  width: 1010px;
+  font-weight: 700;
+}
+
+.calendar__table table {
+  width: 1010px;
+}
+
+.table__header {
+  font-size: 25px;
+  line-height: 29px;
+  color: var(--mainDark-color);
+}
+
+.header__tr {
+  display: flex;
+}
+.header__tr th {
+  flex: 0 1 145px;
+}
+
+.table__body {
+  font-size: 18px;
+  line-height: 21px;
+  color: var(--mainDark-color);
+}
+
+.body__tr {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.body__td {
+  padding: 5px;
+  width: 135px;
+  height: 135px;
+  border: 2px solid var(--mainGreen-color);
+  border-radius: 10px;
+}
+
+.body__event {
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.today {
+  background-color: #B8FEEC;
+}
+
+.selected {
+  border: 3px solid #026C51;
+}

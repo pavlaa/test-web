@@ -6,6 +6,8 @@ import HomePage from "./components/HomePage";
 import InfoPage from "./components/InfoPage";
 import LoginPage from "./components/LoginPage";
 import ProfilePage from "./components/ProfilePage";
+import Calendar from "./components/Calendar/Calendar";
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
           <Route path="/info" element={<InfoPage/>}/>
           <Route path="/login" element={<LoginPage/>}/>
           <Route path="/profile" element={<ProfilePage/>}/>
+          <Route path="/calendar" element={<Calendar/>}/>
         </Routes>
       </div>
     </div>
