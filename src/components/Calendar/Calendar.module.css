@@ -133,6 +133,7 @@
   height: 135px;
   border: 2px solid var(--mainGreen-color);
   border-radius: 10px;
+  overflow: auto;
 }
 
 .body__event {
