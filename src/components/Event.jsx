@@ -1,14 +1,14 @@
 import React from 'react';
 import style from "./Event.module.css";
 
-const Event = () => {
+const Event = ({date, text}) => {
   return (
     <div className={style.event__card}>
       <div className={style.event__data}>
-        18.02.03
+        {date}
       </div>
       <div className={style.event__action}>
-        Need to do some exercise! Need to do some exercise!
+        {text}
       </div>
     </div>
   );

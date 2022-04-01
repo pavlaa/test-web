@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {GetLogout} from "../store/actions/authAction";
 
 const Header = () => {
+  const {profile} = useSelector(state => state?.profile);
   const {isLogin} = useSelector(state => state?.auth);
   const dispatch = useDispatch();
 
@@ -45,7 +46,7 @@ const Header = () => {
               <img src={user} alt="user-icon"/>
             </div>
             <div className={style.profile__name}>
-              Pavel Coolov
+              {profile.name}
             </div>
             <div className={style.profile__logout}>
               <CustomButton size="14px" onClick={onLogout}>Logout</CustomButton>
